@@ -55,6 +55,9 @@
             txtInput.TabIndex = 1;
             txtInput.Text = "여기에 입력하세요.";
             txtInput.TextChanged += txtInput_TextChanged;
+            txtInput.Enter += txtInput_Enter;
+            txtInput.KeyDown += txtInput_KeyDown;
+            
             // 
             // lstOutput
             // 
