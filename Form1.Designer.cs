@@ -32,7 +32,9 @@
             txtInput = new TextBox();
             lstOutput = new ListBox();
             btnSend = new Button();
+            btnDelete = new Button();
             lblCount = new Label();
+            btnClearAll = new Button();
             SuspendLayout();
             // 
             // lblTitle
@@ -52,6 +54,7 @@
             txtInput.Font = new Font("맑은 고딕", 11.5F);
             txtInput.Location = new Point(40, 390);
             txtInput.Name = "txtInput";
+            txtInput.MaxLength = 50; // 입력 글자 수 제한
             txtInput.Size = new Size(558, 33);
             txtInput.TabIndex = 1;
             txtInput.Text = "여기에 입력하세요.";
@@ -73,13 +76,25 @@
             // 
             btnSend.BackColor = Color.GreenYellow;
             btnSend.Font = new Font("바탕", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            btnSend.Location = new Point(624, 388);
+            btnSend.Location = new Point(624, 409);
             btnSend.Name = "btnSend";
             btnSend.Size = new Size(138, 39);
             btnSend.TabIndex = 3;
             btnSend.Text = "전송";
             btnSend.UseVisualStyleBackColor = false;
             btnSend.Click += btnSend_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.IndianRed;
+            btnDelete.Font = new Font("바탕", 13.2F, FontStyle.Bold);
+            btnDelete.Location = new Point(624, 364);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(138, 39);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // lblCount
             // 
@@ -90,12 +105,26 @@
             lblCount.TabIndex = 4;
             lblCount.Text = "여기에 현재 대화 수가 표시됩니다";
             // 
+            // btnClearAll
+            // 
+            btnClearAll.BackColor = Color.OrangeRed;
+            btnClearAll.Font = new Font("바탕", 10F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            btnClearAll.Location = new Point(612, 53);
+            btnClearAll.Name = "btnClearAll";
+            btnClearAll.Size = new Size(150, 36);
+            btnClearAll.TabIndex = 6;
+            btnClearAll.Text = "대화 기록 삭제";
+            btnClearAll.UseVisualStyleBackColor = false;
+            btnClearAll.Click += btnClearAll_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lblCount);
+            Controls.Add(btnClearAll);
+            Controls.Add(btnDelete);
             Controls.Add(btnSend);
             Controls.Add(lstOutput);
             Controls.Add(txtInput);
@@ -112,6 +141,8 @@
         private TextBox txtInput;
         private ListBox lstOutput;
         private Button btnSend;
+        private Button btnDelete;
+        private Button btnClearAll;
         private Label lblCount;
     }
 }
