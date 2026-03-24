@@ -32,6 +32,7 @@
             txtInput = new TextBox();
             lstOutput = new ListBox();
             btnSend = new Button();
+            lblCount = new Label();
             SuspendLayout();
             // 
             // lblTitle
@@ -57,7 +58,6 @@
             txtInput.TextChanged += txtInput_TextChanged;
             txtInput.Enter += txtInput_Enter;
             txtInput.KeyDown += txtInput_KeyDown;
-            
             // 
             // lstOutput
             // 
@@ -81,11 +81,21 @@
             btnSend.UseVisualStyleBackColor = false;
             btnSend.Click += btnSend_Click;
             // 
+            // lblCount
+            // 
+            lblCount.AutoSize = true;
+            lblCount.Location = new Point(42, 364);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(239, 20);
+            lblCount.TabIndex = 4;
+            lblCount.Text = "여기에 현재 대화 수가 표시됩니다";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblCount);
             Controls.Add(btnSend);
             Controls.Add(lstOutput);
             Controls.Add(txtInput);
@@ -102,5 +112,6 @@
         private TextBox txtInput;
         private ListBox lstOutput;
         private Button btnSend;
+        private Label lblCount;
     }
 }

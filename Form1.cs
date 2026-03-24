@@ -12,6 +12,7 @@ namespace EchoMessenger
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            string time = DateTime.Now.ToString("[HH:mm:ss] "); // 현재 시간 문자열로 저장
             // 공백 또는 플레이스홀더만 있는 경우 전송하지 않음
             string typed_msg = txtInput.Text?.Trim() ?? string.Empty; // 입력한 메시지 typed_msg에 저장
             if (string.IsNullOrWhiteSpace(typed_msg) || typed_msg == "여기에 입력하세요.")
@@ -20,8 +21,9 @@ namespace EchoMessenger
                 txtInput.Focus();
                 return;
             }
-
-            lstOutput.Items.Add(typed_msg); // lstOutput에 typed_msg 추가
+            string result_msg = typed_msg.Trim(); // typed_msg에서 양쪽 공백 제거하여 result_msg에 저장
+            lstOutput.Items.Add(time + result_msg); // lstOutput에 현재 시간과 정제한 메시지 추가
+            lblCount.Text = $"현재대화 : {lstOutput.Items.Count}개"; // 현재 대화 수 라벨에 입력
             txtInput.Clear(); // TextBox 초기화
             txtInput.Focus(); // TextBox에 포커스
         }
